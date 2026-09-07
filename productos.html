@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de materiales de construcción, herramientas y ferretería de Ferretería Los Maestros La Serena.">
+    <title>Catálogo de Productos | Ferretería Los Maestros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Topbar & Header -->
+    <header>
+        <div class="topbar">
+            <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-1">
+                <p class="mb-0"><i class="bi bi-geo-alt-fill"></i> Av. Balmaceda #1234, La Serena, Coquimbo</p>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="tel:+56512234567"><i class="bi bi-telephone-fill"></i> +56 51 223 4567</a>
+                    <span class="text-white-50">|</span>
+                    <a href="admin.html" class="text-warning small"><i class="bi bi-shield-lock-fill"></i> Panel Admin</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/logo-ferreteria-los-maestros.png" alt="Ferretería Los Maestros">
+                </a>
+                <div class="d-flex align-items-center gap-2 order-lg-3">
+                    <a class="cart-link" href="carrito.html" aria-label="Ver carrito">
+                        <i class="bi bi-cart3"></i><span class="cart-count">0</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse order-lg-2" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item ms-lg-2"><a class="btn btn-outline-brand btn-sm" href="registro.html">Registrarse</a></li>
+                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-brand btn-sm" href="login.html"><i class="bi bi-person-fill"></i> Ingresar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <!-- Título de cabecera -->
+            <div class="border-bottom pb-4 mb-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2">
+                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Catálogo de Productos</li>
+                    </ol>
+                </nav>
+                <h1 class="display-5 fw-bold text-navy mb-2" style="font-family: 'Barlow Condensed', sans-serif;">CATÁLOGO DE PRODUCTOS</h1>
+                <p class="text-muted mb-0">Consulta precios y disponibilidad en stock en tiempo real para faenas en La Serena y Coquimbo.</p>
+            </div>
+
+            <!-- Barra de Filtros y Búsqueda -->
+            <div class="card p-3 mb-4 border-0 shadow-sm bg-white">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-search"></i></span>
+                            <input type="text" id="busqueda-producto" class="form-control border-start-0" placeholder="Buscar por nombre, código o palabra clave...">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <label for="filtro-categoria" class="form-label text-nowrap mb-0 fw-semibold text-navy">Categoría:</label>
+                            <select id="filtro-categoria" class="form-select">
+                                <option value="todas">Todas las categorías</option>
+                                <option value="Mat. Construcción">Mat. Construcción</option>
+                                <option value="Herramientas">Herramientas</option>
+                                <option value="Pinturas">Pinturas</option>
+                                <option value="Gasfitería">Gasfitería</option>
+                                <option value="Electricidad">Electricidad</option>
+                                <option value="Tornillería">Tornillería</option>
+                                <option value="Madera">Madera</option>
+                                <option value="Seguridad">Seguridad y EPP</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <span class="text-muted small"><i class="bi bi-box-seam me-1"></i> Stock en bodega central</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grilla de Productos Dinámica -->
+            <div class="row g-4" id="products-container">
+                <!-- Se rellena con main.js -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img class="footer-logo" src="assets/img/logo-ferreteria-los-maestros.png" alt="Ferretería Los Maestros">
+                    <p class="mt-3 mb-3">Empresa familiar con 22 años de historia en La Serena, atendida por sus propios dueños. Calidad, confianza y asesoría técnica para tus proyectos.</p>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h2>Enlaces</h2>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Catálogo de Productos</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="blogs.html">Blog & Consejos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h2>Mi Cuenta</h2>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Iniciar Sesión</a></li>
+                        <li><a href="registro.html">Registrarse</a></li>
+                        <li><a href="carrito.html">Mi Carrito</a></li>
+                        <li><a href="admin.html">Panel Administración</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h2>Contacto</h2>
+                    <address class="contact-list">
+                        <p><i class="bi bi-geo-alt-fill"></i><span>Av. Balmaceda 1234, La Serena, Coquimbo</span></p>
+                        <p><i class="bi bi-telephone-fill"></i><a href="tel:+56512234567">+56 51 223 4567</a></p>
+                        <p><i class="bi bi-envelope-fill"></i><a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a></p>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+                <p class="mb-0">&copy; <span id="current-year">2026</span> Ferretería Los Maestros.</p>
+                <p class="mb-0">Proyecto Académico DSY1104 - DUOC UC</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

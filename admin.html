@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de Administración - Ferretería Los Maestros La Serena.">
+    <title>Panel de Administración | Ferretería Los Maestros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-sidebar {
+            min-height: calc(100vh - 84px);
+            background: #041f3c;
+            color: #cbd5e1;
+        }
+        .admin-sidebar .nav-link {
+            color: #cbd5e1;
+            padding: .75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: .35rem;
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            font-weight: 500;
+        }
+        .admin-sidebar .nav-link:hover,
+        .admin-sidebar .nav-link.active {
+            color: #062b55;
+            background: #ffc20a;
+            font-weight: 700;
+        }
+        .admin-badge-role {
+            font-size: .8rem;
+            letter-spacing: .05em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Topbar simplificada de administración -->
+    <header class="bg-navy py-2 px-3 border-bottom border-secondary">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+                <a href="index.html" class="text-white fw-bold d-flex align-items-center gap-2">
+                    <img src="assets/img/logo-ferreteria-los-maestros.png" alt="Logo" style="height: 38px; background: #fff; padding: 2px 6px; border-radius: 4px;">
+                    <span class="d-none d-md-inline text-warning">SISTEMA DE GESTIÓN</span>
+                </a>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <span class="text-white-50 small d-none d-sm-inline">Rol actual:</span>
+                <span class="badge bg-warning text-dark px-3 py-2 fw-bold admin-badge-role" id="admin-current-role">Administrador</span>
+                
+                <!-- Selector rápido para probar roles requeridos en la evaluación -->
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-badge"></i> Cambiar Rol
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li><button class="dropdown-item" onclick="cambiarRolDemo('Administrador')"><i class="bi bi-shield-lock-fill text-danger me-2"></i> Administrador (Total)</button></li>
+                        <li><button class="dropdown-item" onclick="cambiarRolDemo('Vendedor')"><i class="bi bi-bag-check-fill text-warning me-2"></i> Vendedor (Productos)</button></li>
+                    </ul>
+                </div>
+
+                <a href="index.html" class="btn btn-sm btn-outline-light" title="Volver a la tienda pública">
+                    <i class="bi bi-shop"></i> Tienda
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid" id="admin-dashboard">
+        <div class="row">
+            <!-- Menú Lateral Vertical según especificación de evaluación (pág 11) -->
+            <nav class="col-md-3 col-lg-2 d-md-block admin-sidebar p-3">
+                <div class="sticky-top pt-2">
+                    <div class="text-white small fw-bold text-uppercase px-2 mb-2 text-warning">Menú Principal</div>
+                    <ul class="nav flex-column" id="admin-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="tab-productos-btn" data-bs-toggle="pill" href="#tab-productos" role="tab">
+                                <i class="bi bi-box-seam"></i> Mantenedor Productos
+                            </a>
+                        </li>
+                        <li class="nav-item" id="admin-nav-usuarios">
+                            <a class="nav-link" id="tab-usuarios-btn" data-bs-toggle="pill" href="#tab-usuarios" role="tab">
+                                <i class="bi bi-people-fill"></i> Mantenedor Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-ordenes-btn" data-bs-toggle="pill" href="#tab-ordenes" role="tab">
+                                <i class="bi bi-receipt"></i> Órdenes y Cotizaciones
+                            </a>
+                        </li>
+                    </ul>
+                    <hr class="border-secondary my-4">
+                    <div class="p-2 bg-dark rounded small text-white-50">
+                        <i class="bi bi-info-circle text-warning"></i> Control RBAC activo. Vendedor no tiene acceso al módulo de usuarios.
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Contenido del Centro -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+                <div class="tab-content" id="admin-tabs-content">
+                    
+                    <!-- TAB 1: MANTENEDOR DE PRODUCTOS (Requisitos pág 14-15) -->
+                    <div class="tab-pane fade show active" id="tab-productos" role="tabpanel">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-3 mb-3 border-bottom">
+                            <h2 class="h3 fw-bold text-navy mb-0">Gestión de Catálogo e Inventario</h2>
+                            <span class="text-muted small">Bodega Central La Serena</span>
+                        </div>
+
+                        <!-- Formulario Crear/Editar Producto -->
+                        <div class="card shadow-sm border-0 mb-4">
+                            <div class="card-header bg-navy text-white fw-bold py-3">
+                                <i class="bi bi-plus-circle me-2"></i> Registrar o Actualizar Producto
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="form-admin-producto" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-md-3 form-group">
+                                            <label for="prod-codigo" class="form-label">Código Producto <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="prod-codigo" placeholder="Ej: MC015" minlength="3" required>
+                                            <small class="text-muted">Requerido, mín 3 car.</small>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="prod-nombre" class="form-label">Nombre del Producto <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="prod-nombre" placeholder="Ej: Taladro Percutor 750W" maxlength="100" required>
+                                            <small class="text-muted">Requerido, máx 100 car.</small>
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="prod-categoria" class="form-label">Categoría <span class="text-danger">*</span></label>
+                                            <select id="prod-categoria" class="form-select" required>
+                                                <option value="">Selecciona...</option>
+                                                <option value="Mat. Construcción">Mat. Construcción</option>
+                                                <option value="Herramientas">Herramientas</option>
+                                                <option value="Pinturas">Pinturas</option>
+                                                <option value="Gasfitería">Gasfitería</option>
+                                                <option value="Electricidad">Electricidad</option>
+                                                <option value="Tornillería">Tornillería</option>
+                                                <option value="Madera">Madera</option>
+                                                <option value="Seguridad">Seguridad</option>
+                                                <option value="Jardín">Jardín</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="prod-precio" class="form-label">Precio Venta (CLP) <span class="text-danger">*</span></label>
+                                            <input type="number" class="form-control" id="prod-precio" placeholder="Ej: 24990" min="0" step="any" required>
+                                            <small class="text-muted">Requerido, mín 0 (0 = free).</small>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="prod-stock" class="form-label">Stock en Inventario <span class="text-danger">*</span></label>
+                                            <input type="number" class="form-control" id="prod-stock" placeholder="Ej: 50" min="0" step="1" required>
+                                            <small class="text-muted">Requerido, entero >= 0.</small>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="prod-stock-critico" class="form-label">Stock Crítico <span class="text-muted small">(Opcional)</span></label>
+                                            <input type="number" class="form-control" id="prod-stock-critico" placeholder="Ej: 10" min="0" step="1">
+                                            <small class="text-muted">Alerta si stock <= crítico.</small>
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <label for="prod-descripcion" class="form-label">Descripción Detallada <span class="text-muted small">(Opcional)</span></label>
+                                            <textarea class="form-control" id="prod-descripcion" rows="2" placeholder="Especificaciones de obra, marca o detalles técnicos..." maxlength="500"></textarea>
+                                            <small class="text-muted">Opcional, máx 500 car.</small>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 text-end">
+                                        <button type="submit" class="btn btn-brand px-4">
+                                            <i class="bi bi-save me-1"></i> Guardar Producto
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Tabla de Productos -->
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header bg-white py-3 fw-bold text-navy d-flex justify-content-between align-items-center">
+                                <span><i class="bi bi-table me-2"></i> Listado General de Productos</span>
+                                <span class="text-muted small">Sincronizado con LocalStorage</span>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nombre</th>
+                                                <th>Categoría</th>
+                                                <th>Precio</th>
+                                                <th>Stock</th>
+                                                <th>Mín. Crítico</th>
+                                                <th class="text-end">Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-products-table">
+                                            <!-- Renderizado con main.js -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: MANTENEDOR DE USUARIOS (Requisitos pág 15-16) -->
+                    <div class="tab-pane fade" id="tab-usuarios" role="tabpanel">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-3 mb-3 border-bottom">
+                            <h2 class="h3 fw-bold text-navy mb-0">Gestión de Usuarios y Roles (RBAC)</h2>
+                            <span class="badge bg-danger">Módulo exclusivo Administrador</span>
+                        </div>
+
+                        <!-- Formulario Nuevo Usuario -->
+                        <div class="card shadow-sm border-0 mb-4">
+                            <div class="card-header bg-navy text-white fw-bold py-3">
+                                <i class="bi bi-person-plus-fill me-2"></i> Crear Nuevo Usuario en el Sistema
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="form-admin-usuario" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-md-4 form-group">
+                                            <label for="usuario-run" class="form-label">RUN <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="usuario-run" placeholder="Ej: 19011022K" maxlength="9" required>
+                                            <small class="text-muted">Sin puntos ni guión (validación dígito verificador).</small>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="usuario-nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="usuario-nombre" placeholder="Ej: Mario" maxlength="50" required>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="usuario-apellidos" class="form-label">Apellidos <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="usuario-apellidos" placeholder="Ej: Araya Soto" maxlength="100" required>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="usuario-correo" class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="usuario-correo" placeholder="usuario@duoc.cl" maxlength="100" required>
+                                            <small class="text-muted">@duoc.cl, @profesor.duoc.cl, @gmail.com</small>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="usuario-rol" class="form-label">Tipo de Usuario (Rol) <span class="text-danger">*</span></label>
+                                            <select id="usuario-rol" class="form-select" required>
+                                                <option value="">Selecciona rol...</option>
+                                                <option value="Administrador">Administrador</option>
+                                                <option value="Vendedor">Vendedor</option>
+                                                <option value="Cliente">Cliente</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="usuario-region" class="form-label">Región <span class="text-danger">*</span></label>
+                                            <select id="usuario-region" class="form-select" required>
+                                                <option value="">Selecciona región...</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="usuario-comuna" class="form-label">Comuna <span class="text-danger">*</span></label>
+                                            <select id="usuario-comuna" class="form-select" required>
+                                                <option value="">Selecciona comuna...</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <label for="usuario-direccion" class="form-label">Dirección <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="usuario-direccion" placeholder="Calle, número, oficina o faena" maxlength="300" required>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 text-end">
+                                        <button type="submit" class="btn btn-brand px-4">
+                                            <i class="bi bi-person-check me-1"></i> Guardar Usuario
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Tabla de Usuarios -->
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header bg-white py-3 fw-bold text-navy">
+                                <i class="bi bi-card-list me-2"></i> Usuarios Registrados en el Sistema
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>RUN</th>
+                                                <th>Nombre Completo</th>
+                                                <th>Correo</th>
+                                                <th>Rol</th>
+                                                <th>Comuna</th>
+                                                <th>Dirección</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-users-table">
+                                            <!-- Renderizado con main.js -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: ÓRDENES / COTIZACIONES -->
+                    <div class="tab-pane fade" id="tab-ordenes" role="tabpanel">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-3 mb-3 border-bottom">
+                            <h2 class="h3 fw-bold text-navy mb-0">Órdenes y Solicitudes de Cotización</h2>
+                            <span class="badge bg-success">Acceso Vendedor y Administrador</span>
+                        </div>
+
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>N° Orden</th>
+                                                <th>Cliente</th>
+                                                <th>Tipo</th>
+                                                <th>Monto</th>
+                                                <th>Estado</th>
+                                                <th>Condición de Pago</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>#ORD-1024</code></td>
+                                                <td>Constructora San Cristóbal</td>
+                                                <td>Despacho Faena La Serena</td>
+                                                <td><strong>$ 458.900</strong></td>
+                                                <td><span class="badge bg-warning text-dark">Pendiente Despacho</span></td>
+                                                <td>Cuenta Corriente (Fin de mes)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>#ORD-1025</code></td>
+                                                <td>Carlos González</td>
+                                                <td>Retiro en Mesón</td>
+                                                <td><strong>$ 24.580</strong></td>
+                                                <td><span class="badge bg-success">Listo para entrega</span></td>
+                                                <td>Efectivo / Débito</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>#ORD-1026</code></td>
+                                                <td>Maestro Pedro Morales</td>
+                                                <td>Despacho Coquimbo Centro</td>
+                                                <td><strong>$ 128.400</strong></td>
+                                                <td><span class="badge bg-primary">En preparación</span></td>
+                                                <td>Cuenta Corriente (Fin de mes)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        function cambiarRolDemo(nuevoRol) {
+            const sesion = { correo: nuevoRol.toLowerCase() + "@duoc.cl", rol: nuevoRol, timestamp: new Date().toISOString() };
+            localStorage.setItem("usuario_sesion", JSON.stringify(sesion));
+            window.location.reload();
+        }
+    </script>
+</body>
+
+</html>
