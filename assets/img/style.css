@@ -1,0 +1,263 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: #064d86;
+}
+
+.navbar,
+.banner,
+.pie,
+.menu-admin {
+    background: #06345e;
+}
+
+.navbar-brand img {
+    width: 44px;
+    height: 44px;
+}
+
+.navbar-brand span {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-brand small {
+    display: block;
+    color: white;
+    font-size: 11px;
+}
+
+.navbar .nav-link {
+    color: white;
+}
+
+.navbar .nav-link:hover {
+    color: #ffc107;
+}
+
+.banner {
+    padding: 40px 0;
+    color: white;
+}
+
+.banner h1 {
+    font-size: 36px;
+}
+
+.banner p {
+    color: white;
+}
+
+.imagen-principal {
+    max-height: 260px;
+}
+
+.espacio-seccion {
+    padding: 35px 0;
+}
+
+.titulo-seccion {
+    margin-bottom: 20px;
+    color: #06345e;
+}
+
+.lista-productos,
+.lista-simple {
+    padding: 0;
+}
+
+.lista-productos {
+    list-style: none;
+}
+
+.lista-productos li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.lista-productos img {
+    width: 130px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.lista-productos h2,
+.lista-productos h3 {
+    margin: 5px 0;
+    color: #06345e;
+    font-size: 18px;
+}
+
+.lista-productos p {
+    margin: 5px 0;
+}
+
+.lista-simple {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.categoria-producto,
+.texto-gris {
+    color: #666;
+}
+
+.categoria-producto {
+    font-size: 14px;
+}
+
+.precio-producto {
+    color: #06345e;
+    font-weight: bold;
+}
+
+.boton-principal {
+    border: 1px solid #ffc107;
+    background: #ffc107;
+    color: #222;
+    font-weight: bold;
+}
+
+.boton-secundario {
+    border: 1px solid #06345e;
+    color: #06345e;
+}
+
+.boton-secundario:hover {
+    background: #06345e;
+    color: white;
+}
+
+.tarjeta,
+.tarjeta-formulario,
+.tarjeta-carrito {
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.tarjeta {
+    padding: 20px;
+}
+
+.tarjeta-formulario {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-label {
+    color: #06345e;
+    font-weight: bold;
+}
+
+.error-campo {
+    display: block;
+    min-height: 20px;
+    color: #b00020;
+    font-size: 14px;
+}
+
+.mensaje-formulario {
+    min-height: 22px;
+    margin-top: 15px;
+    color: #087f23;
+}
+
+.panel-admin {
+    display: flex;
+    min-height: 500px;
+}
+
+.menu-admin {
+    width: 220px;
+    padding: 25px 15px;
+}
+
+.menu-admin h2 {
+    color: white;
+    font-size: 20px;
+}
+
+.menu-admin a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu-admin a:hover {
+    background: #0b5a99;
+}
+
+.contenido-admin {
+    flex: 1;
+    padding: 25px;
+}
+
+.tabla-admin {
+    background: white;
+}
+
+.tabla-admin th {
+    background: #06345e;
+    color: white;
+}
+
+.pie {
+    padding: 30px 0 20px;
+    color: white;
+}
+
+.pie a {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 30px;
+    }
+
+    .lista-productos li {
+        align-items: flex-start;
+    }
+
+    .lista-productos img {
+        width: 95px;
+        height: 75px;
+    }
+
+    .panel-admin {
+        display: block;
+    }
+
+    .menu-admin {
+        width: 100%;
+    }
+
+    .menu-admin nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contenido-admin {
+        padding: 20px 12px;
+    }
+}
