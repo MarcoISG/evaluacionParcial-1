@@ -1,192 +1,73 @@
 <!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conoce la historia y trayectoria de 22 años de Ferretería Los Maestros en La Serena.">
-    <title>Nosotros | Ferretería Los Maestros</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <!-- Topbar & Header -->
-    <header>
-        <div class="topbar">
-            <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-1">
-                <p class="mb-0"><i class="bi bi-geo-alt-fill"></i> Av. Balmaceda #1234, La Serena, Coquimbo</p>
-                <div class="d-flex align-items-center gap-3">
-                    <a href="tel:+56512234567"><i class="bi bi-telephone-fill"></i> +56 51 223 4567</a>
-                    <span class="text-white-50">|</span>
-                    <a href="admin.html" class="text-warning small"><i class="bi bi-shield-lock-fill"></i> Panel Admin</a>
-                </div>
-            </div>
-        </div>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" aria-label="Navegación principal">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/logo-ferreteria-los-maestros.png" alt="Ferretería Los Maestros">
-                </a>
-                <div class="d-flex align-items-center gap-2 order-lg-3">
-                    <a class="cart-link" href="carrito.html" aria-label="Ver carrito">
-                        <i class="bi bi-cart3"></i><span class="cart-count">0</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Nosotros | Ferretería Los Maestros</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <img src="assets/img/logo-ferreteria-los-maestros.png" alt="Logo de Ferretería Los Maestros">
+                        <span>Los Maestros <small>Materiales y herramientas</small></span>
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                </div>
-                <div class="collapse navbar-collapse order-lg-2" id="menuPrincipal">
-                    <ul class="navbar-nav ms-auto align-items-lg-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                        <li class="nav-item ms-lg-2"><a class="btn btn-outline-brand btn-sm" href="registro.html">Registrarse</a></li>
-                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-brand btn-sm" href="login.html"><i class="bi bi-person-fill"></i> Ingresar</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="py-5">
-        <div class="container">
-            <!-- Introducción -->
-            <div class="row align-items-center mb-5 g-4">
-                <div class="col-lg-6">
-                    <span class="section-label"><i class="bi bi-shield-check"></i> Tradición Ferretera en La Serena</span>
-                    <h1 class="display-5 fw-bold text-navy mt-1 mb-3" style="font-family: 'Barlow Condensed', sans-serif;">22 AÑOS AL SERVICIO DE NUESTRA COMUNIDAD</h1>
-                    <p class="lead text-muted">Ferretería Los Maestros nació como un emprendimiento familiar con la convicción de entregar a los maestros, albañiles, contratistas y familias de la Región de Coquimbo los mejores materiales y una atención de mesón cercana y honesta.</p>
-                    <p class="text-muted">Hoy contamos con más de 800 referencias activas, bodega propia y un sistema de despacho ágil que conecta directamente nuestro inventario con las obras y hogares de la zona.</p>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80" alt="Faena de construcción y ferretería" class="img-fluid rounded-4 shadow-lg">
-                </div>
-            </div>
-
-            <!-- Misión y Visión -->
-            <div class="row g-4 mb-5">
-                <div class="col-md-6">
-                    <div class="p-4 bg-white rounded-3 shadow-sm border h-100">
-                        <div class="feature-icon"><i class="bi bi-compass"></i></div>
-                        <h4 class="fw-bold text-navy mb-2">Nuestra Misión</h4>
-                        <p class="text-muted mb-0">Abastecer con rapidez, transparencia y precio justo los insumos y herramientas esenciales para los proyectos de edificación, reparación y remodelación en la región, acompañando técnicamente a cada cliente en cada paso de su obra.</p>
+                    <div class="collapse navbar-collapse" id="menu-principal">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="nosotros.html">Nosotros</a></li>
+                            <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="p-4 bg-white rounded-3 shadow-sm border h-100">
-                        <div class="feature-icon"><i class="bi bi-eye"></i></div>
-                        <h4 class="fw-bold text-navy mb-2">Nuestra Visión</h4>
-                        <p class="text-muted mb-0">Ser la ferretería preferida y referente de confianza para contratistas y maestros de La Serena y Coquimbo, integrando tecnología digital para consultas de stock en tiempo real y agilidad en compras de mesón y faena.</p>
+            </nav>
+        </header>
+        <main class="espacio-seccion">
+            <div class="container">
+                <h1 class="titulo-seccion">Nosotros</h1>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <section class="tarjeta h-100">
+                            <img src="assets/img/logo-ferreteria-los-maestros.png" alt="Logo de Ferretería Los Maestros">
+                            <h2 class="h4 mt-4 text-primary">Una historia familiar</h2>
+                            <p>
+                                Ferretería Los Maestros es un negocio familiar de La Serena con 22 años de trayectoria. Actualmente presentamos materiales de construcción, pinturas y herramientas.
+                            </p>
+                            <p>
+                                Las demás categorías se incorporarán próximamente. Este sitio es una propuesta frontend para facilitar la consulta de productos y la comunicación con la tienda.
+                            </p>
+                        </section>
+                    </div>
+                    <div class="col-lg-6">
+                        <section class="tarjeta h-100">
+                            <h2 class="h4 text-primary">Conoce el rubro ferretero</h2>
+                            <p>Video informativo relacionado con herramientas y trabajo en proyectos de construcción.</p>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/8Qn_spdM5Zg" title="Video informativo sobre herramientas" allowfullscreen></iframe>
+                            </div>
+                            <h2 class="h5 mt-4">Desarrolladores</h2>
+                            <p class="mb-0">Proyecto académico desarrollado por el equipo de estudiantes de DSY1104.</p>
+                        </section>
                     </div>
                 </div>
             </div>
-
-            <!-- Nuestro Equipo -->
-            <div class="text-center mb-4">
-                <h2 class="fw-bold text-navy" style="font-family: 'Barlow Condensed', sans-serif;">NUESTRO EQUIPO</h2>
-                <p class="text-muted">Las personas detrás de la atención personalizada y el despacho de bodega.</p>
+        </main>
+        <footer class="pie">
+            <div class="container">
+                <h2 class="h5">Ferretería Los Maestros</h2>
+                <small>© <span data-anio></span> · La Serena</small>
             </div>
-
-            <div class="row g-4 text-center">
-                <div class="col-sm-6 col-md-3">
-                    <div class="card border-0 shadow-sm p-3 h-100">
-                        <div class="mb-3 mx-auto bg-light rounded-circle d-grid place-items-center" style="width: 80px; height: 80px;">
-                            <i class="bi bi-person-fill fs-1 text-navy"></i>
-                        </div>
-                        <h6 class="fw-bold text-navy mb-0">Don Manuel</h6>
-                        <small class="text-muted">Dueño y Fundador</small>
-                        <p class="text-muted small mt-2">22 años liderando compras y relaciones con proveedores de áridos y cementos.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card border-0 shadow-sm p-3 h-100">
-                        <div class="mb-3 mx-auto bg-light rounded-circle d-grid place-items-center" style="width: 80px; height: 80px;">
-                            <i class="bi bi-person-gear fs-1 text-navy"></i>
-                        </div>
-                        <h6 class="fw-bold text-navy mb-0">Manuel Jr.</h6>
-                        <small class="text-muted">Gestión Comercial & Stock</small>
-                        <p class="text-muted small mt-2">A cargo de la modernización digital, catálogo web y atención a contratistas.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card border-0 shadow-sm p-3 h-100">
-                        <div class="mb-3 mx-auto bg-light rounded-circle d-grid place-items-center" style="width: 80px; height: 80px;">
-                            <i class="bi bi-tools fs-1 text-navy"></i>
-                        </div>
-                        <h6 class="fw-bold text-navy mb-0">Pedro Pérez</h6>
-                        <small class="text-muted">Ventas y Asesoría Técnica</small>
-                        <p class="text-muted small mt-2">Especialista en gasfitería, electricidad y herramientas de impacto.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card border-0 shadow-sm p-3 h-100">
-                        <div class="mb-3 mx-auto bg-light rounded-circle d-grid place-items-center" style="width: 80px; height: 80px;">
-                            <i class="bi bi-truck fs-1 text-navy"></i>
-                        </div>
-                        <h6 class="fw-bold text-navy mb-0">Roberto Gómez</h6>
-                        <small class="text-muted">Bodega y Despacho</small>
-                        <p class="text-muted small mt-2">Responsable de entregas puntuales y control físico de existencias.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container py-5">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <img class="footer-logo" src="assets/img/logo-ferreteria-los-maestros.png" alt="Ferretería Los Maestros">
-                    <p class="mt-3 mb-3">Empresa familiar con 22 años de historia en La Serena, atendida por sus propios dueños.</p>
-                </div>
-                <div class="col-6 col-lg-2 offset-lg-1">
-                    <h2>Enlaces</h2>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="productos.html">Catálogo de Productos</a></li>
-                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
-                        <li><a href="blogs.html">Blog & Consejos</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-2">
-                    <h2>Mi Cuenta</h2>
-                    <ul class="footer-links">
-                        <li><a href="login.html">Iniciar Sesión</a></li>
-                        <li><a href="registro.html">Registrarse</a></li>
-                        <li><a href="carrito.html">Mi Carrito</a></li>
-                        <li><a href="admin.html">Panel Administración</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h2>Contacto</h2>
-                    <address class="contact-list">
-                        <p><i class="bi bi-geo-alt-fill"></i><span>Av. Balmaceda 1234, La Serena, Coquimbo</span></p>
-                        <p><i class="bi bi-telephone-fill"></i><a href="tel:+56512234567">+56 51 223 4567</a></p>
-                        <p><i class="bi bi-envelope-fill"></i><a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a></p>
-                    </address>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
-                <p class="mb-0">&copy; <span id="current-year">2026</span> Ferretería Los Maestros.</p>
-                <p class="mb-0">Proyecto Académico DSY1104 - DUOC UC</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
-</body>
-
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+    </body>
 </html>
